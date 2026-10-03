@@ -175,11 +175,12 @@ async def _run(
             if kind == "started":
                 result.request_id = event.get("request_id")
                 result.credits = event.get("credits") or {}
-                await ctx.info(f"Started {result.request_id}; reserved {result.credits.get('reserved')} credits")
+                await ctx.report_progress(0, message=f"Started; reserved {result.credits.get('reserved')} credits")
             elif kind == "progress":
                 await ctx.report_progress(len(result.outputs), message=event.get("message"))
             elif kind == "output":
                 record = await _save_asset(event.get("asset") or {}, out_dir, stem, previews)
+                record.pop("prompt", None)
                 record["index"] = event.get("index")
                 result.outputs.append(record)
                 await ctx.report_progress(len(result.outputs), message=f"Saved output {len(result.outputs)}")
