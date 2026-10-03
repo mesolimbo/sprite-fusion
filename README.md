@@ -4,12 +4,10 @@ An MCP server (Python, `mcp` SDK v2) for the [Sprite Fusion API](https://www.spr
 
 ## Setup
 
-1. Copy `.env.example` to `.env` and set `SPRITE_FUSION_API_KEY`. You can also paste a key in chat; the assistant passes it to `set_api_key`.
-2. Register the server with Claude Code:
+1. Run `make env` and set `SPRITE_FUSION_API_KEY` in `.env`. You can also paste a key in chat; the assistant passes it to `set_api_key`.
+2. Run `make register` to install dependencies and register the server with Claude Code. Run `make credits` to check the key.
 
-   ```sh
-   claude mcp add --scope user sprite-fusion -- uv run --directory /path/to/sprite-fusion sprite-fusion-mcp
-   ```
+Run `make` to list all upkeep targets (build, upgrade, clean, uninstall and more).
 
 ## Tools
 
