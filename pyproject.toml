@@ -1,0 +1,22 @@
+[project]
+name = "sprite-fusion-mcp"
+version = "0.1.0"
+description = "MCP server for the Sprite Fusion pixel art API"
+readme = "README.md"
+authors = [
+    { name = "Al", email = "mesolimbo@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+    "pillow>=12.3.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+sprite-fusion-mcp = "sprite_fusion_mcp:main"
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
